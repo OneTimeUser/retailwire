@@ -64,7 +64,7 @@ need to add module class to all labels in php
 }
 
 .widget_tag_cloud{ /*temp style fix*/
-	margin-top: 0 !important;
+/*	margin-top: 0 !important;*/
 }
 
 .tagcloud {

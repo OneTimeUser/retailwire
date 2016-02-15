@@ -1447,9 +1447,6 @@ function braintrust(){
 							    </div>
 							<?php endif; ?>
 
-						<li class="item-braintrust-3" >
-
-						</li>
 					</ul>
         
 

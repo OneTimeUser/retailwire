@@ -21,10 +21,6 @@ get_header(); ?>
 	<div id="primary" class="site-content row" role="main">
 		<?php if ( !is_user_logged_in() ) { ?>
 
-		<div class="login-disqui">
-	
-
-		</div>
 		<div class="login-l col grid_6_of_12">
 			<div class="form-login-2">
 				<?php 
@@ -57,16 +53,20 @@ get_header(); ?>
 				<li><a href="" class="icon-tt-1">Sign in with Twitter</a></li>
 				<li><a href="" class="icon-fb-1">Sign in with Facebook</a></li>
 				<li><a href="" class="icon-in-1">Sign in with LinkedIn</a></li>
-				<!-- <li><a href="" class="icon-gg-1">Sign in with Google</a></li> -->
+				<li><a href="" class="icon-gg-1">Sign in with Google</a></li>
 			</ul>
-			<a href="#" class="connect-b">Or Sign up with Email</a>
-			<p></p>
+			<a href="#" class="connect-b">Or sIgn up with Email</a>
+			<p>If you sign up with Twitter or Facebook, we’ll start you off 
+				with a network by automatically importing any followers/fol
+				lowees or friends already on Medium. Also, we’ll never post 
+				to Twitter or Facebook without your permission.</p>
 			<button href="#" class="btn">Sign Up</button>
 
 		</div> <!-- /.col.grid_8_of_12 -->
 		
 		<?php } else { ?>
-		<p> </p>		
+		<p>Do you see reports of franchises unhappiness at McDonald's part of the normal grumbling that comes 
+		with most changes or a sign of serious problem with the strategy? </p>		
 		<?php
 
 		$author_id = get_current_user_id();
@@ -79,7 +79,10 @@ get_header(); ?>
 		?>
 		<form class="group-login">
 			<div class="login-g-user">
-				<a class="avata-login" href="<?php echo get_author_posts_url($author->ID); ?>"><img src="<?php echo $author_avata_user['url']; ?>"></a>
+				<a class="avata-login" href="<?php echo get_author_posts_url($author->ID); ?>"><?php 
+												 $size="144";
+												 echo get_avatar($author_id,$size);
+												 ?></a>
 				<div class="info-login-user">
 					<a href="<?php echo get_author_posts_url($author->ID); ?>"><?php 
 						$current_user = wp_get_current_user();

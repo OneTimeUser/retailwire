@@ -18,34 +18,7 @@
 
 		<footer class="site-footer row" role="contentinfo">
 
-			<?php
-			// Count how many footer sidebars are active so we can work out how many containers we need
-			$footerSidebars = 0;
-			for ( $x=1; $x<=4; $x++ ) {
-				if ( is_active_sidebar( 'sidebar-footer' . $x ) ) {
-					$footerSidebars++;
-				}
-			}
-
-			// If there's one or more one active sidebars, create a row and add them
-			if ( $footerSidebars > 0 ) { ?>
-				<?php
-				// Work out the container class name based on the number of active footer sidebars
-				$containerClass = "grid_" . 12 / $footerSidebars . "_of_12";
-
-				// Display the active footer sidebars
-				for ( $x=1; $x<=4; $x++ ) {
-					if ( is_active_sidebar( 'sidebar-footer'. $x ) ) { ?>
-						<div class="col <?php echo $containerClass?>">
-							<div class="widget-area" role="complementary">
-								<?php dynamic_sidebar( 'sidebar-footer'. $x ); ?>
-							</div>
-						</div> <!-- /.col.<?php echo $containerClass?> -->
-					<?php }
-				} ?>
-
-			<?php } ?>
-
+			
 		</footer> <!-- /.site-footer.row -->
 		<div class="footer-bottom">
 			<div class="container">
@@ -123,11 +96,10 @@
 	      navigation : true, 
 	      slideSpeed : 300,
 	      paginationSpeed : 400,
-	      items : 3
-		 /* itemsCustom : [
-	        [1600, 3],
-	        [400, 1]
-	      ]*/
+	      items : 3,
+		  itemsCustom : [
+	        [1600, 3]
+	      ]
 	  });
 
 	  $('.m-arrow-menu,.m-arrow-search').click(function(){
@@ -139,7 +111,7 @@
         })
 
 	   $(window).scroll(function() {
-		if ($(this).scrollTop() > 100){  
+		if ($(this).scrollTop() > 200){  
 		    $('#headercontainer').addClass("sticky");
 		  }
 		  else{
@@ -159,6 +131,7 @@
                $('.content-f-top').slideToggle(500);
          })
 
+   		
 
 
 
@@ -167,22 +140,22 @@
 
 </script>
 <script type="text/javascript">
-/*var disqus_config = function () {
+var disqus_config = function () {
     // The generated payload which authenticates users with Disqus
     this.page.remote_auth_s3 = '<message> <hmac> <timestamp>';
-    this.page.api_key = 'public_api_key';
+    this.page.api_key = '2jV4kkaizbc8U4auShxMeRCzFUA0hO8mX3pKfmkCPPj81xi58G1FVyEDwPTnJi1j';
 
 // This adds the custom login/logout functionality
     this.sso = {
           name:   "SampleNews",
-          button:  "http://content.disqus.com/docs/sso-button.png",
-          icon:     "http://content.disqus.com/docs/sso-button.png",
-          url:        "http://localhost/retailwire/login/",
-          logout:  "http://localhost/retailwire/logout/",
+          button:  "http://retailwire.icodedark.com/wp-content/uploads/2016/01/img-post.png",
+          icon:     "http://retailwire.icodedark.com/wp-content/uploads/2016/01/img-post.png",
+          url:        "retailwire.icodedark.com/login/",
+          logout:  "retailwire.icodedark.com/login",
           width:   "800",
           height:  "400"
     };
-};*/
+};
 </script>
 <!-- Start of Async HubSpot Analytics Code -->
   <script type="text/javascript">
