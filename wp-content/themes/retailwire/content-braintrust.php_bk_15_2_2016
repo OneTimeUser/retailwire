@@ -16,6 +16,7 @@
 										//var_dump($vote);
 										if($vote=="on"){
 										?>
+									
 
 									<div class="item-b-l">
 				              			<span class="module-label title-brain">Braintrust</span>
@@ -37,7 +38,7 @@
 										<a class="link-name-author show-600" href="<?php echo get_author_posts_url($author_id); ?>"><h2><?php echo get_the_author(); ?></h2></a>
 									</div>
 
-									<?php  break; } ?>
+									<?php } ?>
 									<?php } ?>
 				              		
 									
@@ -50,9 +51,12 @@
 										<?php $author_id = get_the_author_meta('ID');
 											  $content_user = get_field('content', 'user_'. $author_id );
 										 ?>
-									<div class="desc"><?php echo $content_user; ?></div>
+									<div class="desc"><!--
+									<?php echo $content_user; ?> -->
+									</div>
 									</div>
 									<div class="item-b-r">
+										<!--
 										<a class="link-name-author" href="<?php echo get_author_posts_url($author_id); ?>"><h2><?php echo get_the_author(); ?></h2></a>
 										<div class="img-user">
 											<a href="<?php echo get_author_posts_url($author_id); ?>">
@@ -62,7 +66,9 @@
 												 ?>
 											</a>
 										</div>
+
 										<a class="link-name-author show-600" href="<?php echo get_author_posts_url($author_id); ?>"><h2><?php echo get_the_author(); ?></h2></a>
+										-->
 									</div>
 									
 								</div>

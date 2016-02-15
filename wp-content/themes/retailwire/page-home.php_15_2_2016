@@ -51,6 +51,7 @@ get_header(); ?>
 				              		<span class="module-label title-dis">
 				              			Discussion
 				              		</span>
+				              		<div class="thumb-wrapper">
 				              		<?php
 
 									if ( has_post_thumbnail() ) { ?>
@@ -63,7 +64,7 @@ get_header(); ?>
 										<img src="<?php echo get_bloginfo( 'stylesheet_directory' ); ?>/images/post-2.jpg" />
 									<?php }
 									?>
-					                  
+					                </div>  
 							         <div class="info-dis">
 							         		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 							         		<div class="info-bottom">
@@ -98,6 +99,7 @@ get_header(); ?>
 				<div class="tag">
 					<?php dynamic_sidebar('tags'); ?>
 				</div>
+			
 			</div>
 			<div class="clear"></div>
 
@@ -105,6 +107,34 @@ get_header(); ?>
 		</div>
 		<?php //get_sidebar(); ?>
 		<div class="section-2">
+			<?php /*if ( is_front_page() ) {*/
+				// Count how many banner sidebars are active so we can work out how many containers we need
+				$bannerSidebars = 0;
+				for ( $x=1; $x<=2; $x++ ) {
+					if ( is_active_sidebar( 'frontpage-banner' . $x ) ) {
+						$bannerSidebars++;
+					}
+				}
+
+				// If there's one or more one active sidebars, create a row and add them
+				if ( $bannerSidebars > 0 ) { ?>
+					<?php
+					// Work out the container class name based on the number of active banner sidebars
+					$containerClass = "grid_" . 12 / 1 . "_of_12"; //$bannerSidebars
+
+					// Display the active banner sidebars
+					for ( $x=2; $x<=2; $x++ ) {
+						if ( is_active_sidebar( 'frontpage-banner'. $x ) ) { ?>
+							<div class="col <?php echo $containerClass?>">
+								<div class="widget-area" role="complementary">
+									<?php dynamic_sidebar( 'frontpage-banner'. $x ); ?>
+								</div> <!-- /.widget-area -->
+							</div> <!-- /.col.<?php echo $containerClass?> -->
+						<?php }
+					} ?>
+
+				<?php }
+			/*}*/ ?>
 			<a href="">
 				<?php $background2 = of_get_option( 'ad_970x90', $background_defaults ); ?>
 					 <img src="<?php echo esc_url( $background2['image'] );  ?>">
@@ -123,7 +153,7 @@ get_header(); ?>
 		          $args = array(
 		          	'post_type'=>'post',
 		            'order' => 'desc',
-		            'posts_per_page' => 12
+		            'posts_per_page' => 8
 		          );
 
 		          $wp_query = new WP_Query( $args );
@@ -144,8 +174,9 @@ get_header(); ?>
 							<div class="group-info">
 								<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 								<div class="date">
-									<span><?php the_category(); ?></span>
-									<span class="full-date"><?php echo get_the_date('d/m/Y')?></span>
+									<span><?php the_field('news_source'); ?></span>
+									
+									<span class="full-date"><?php echo get_the_date('m/d/Y')?></span>
 								</div>
 							</div>
 		              </div>
@@ -176,10 +207,10 @@ get_header(); ?>
 				              while ( $wp_query->have_posts() ) : $wp_query->the_post();?>
 				              
 				              <div class="sub-list-press <?php  if ( has_post_thumbnail() == '' ) { echo 'not-thumbnail'; } ?>">
-										<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+										<h3><a href="<?php the_field('source_url'); ?>"><?php the_title(); ?></a></h3>
 										<div class="date-press">
-											<span class="cate_press"><?php the_category(); ?></span>
-											<span class="full-date-sub"><?php echo get_the_date('d/m/Y'); ?></span>
+											<span class="cate_press"><?php the_field('news_source'); ?></span>
+											<span class="full-date-sub"><?php echo get_the_date('m/d/Y'); ?></span>
 										</div>
 				              </div>
 
@@ -201,6 +232,7 @@ get_header(); ?>
 						    	<li><span link="#tab2">Brands</span></li>
 						    	<li><span link="#tab3">Braintrust</span></li>
 								<li><span link="#tab4">Tech/Services</span></li>
+								<li><span link="#tab5">RW</span></li>
 						    </ul>
 							
 						    <div class="tabDetails">
@@ -208,13 +240,16 @@ get_header(); ?>
 						        	<?php echo do_shortcode('[AIGetTwitterFeeds ai_username="rwfeed_retail" ai_numberoftweets="5"]'); ?>
 						        </div>
 						    	<div id="tab2" class="tabContents">
-						        	<?php echo do_shortcode('[AIGetTwitterFeeds ai_username="rwfeed_bt" ai_numberoftweets="5"]'); ?>
+						        	<?php echo do_shortcode('[AIGetTwitterFeeds ai_username="rwfeed_rw" ai_numberoftweets="5"]'); ?>
 						        </div>
 						    	<div id="tab3" class="tabContents">
-						        	<?php echo do_shortcode('[AIGetTwitterFeeds ai_username="rwfeed_tech" ai_numberoftweets="5"]'); ?>
+						        	<?php echo do_shortcode('[AIGetTwitterFeeds ai_username="rwfeed_bt" ai_numberoftweets="5"]'); ?>
 						        </div>
 								<div id="tab4" class="tabContents">
-						        	<?php echo do_shortcode('[AIGetTwitterFeeds ai_username="rwfeed_rw" ai_numberoftweets="5"]'); ?>
+						        	<?php echo do_shortcode('[AIGetTwitterFeeds ai_username="rwfeed_tech" ai_numberoftweets="5"]'); ?>
+						        </div>
+						        <div id="tab5" class="tabContents">
+						        	<?php echo do_shortcode('[AIGetTwitterFeeds ai_username="retailwire" ai_numberoftweets="5"]'); ?>
 						        </div>
 								
 						    </div>
@@ -229,18 +264,34 @@ get_header(); ?>
 			</div>
 			<div class="sec-3-r">
 				<div class="space">
-					<div class="ad-2">
-						<?php $background = of_get_option( 'ad_300x250', $background_defaults ); ?>
-						<img src="<?php echo esc_url( $background['image'] );  ?>">
-					</div>
-					<div class="ad-2">
-						<?php $background = of_get_option( 'ad-300x250', $background_defaults ); ?>
-						<img src="<?php echo esc_url( $background['image'] );  ?>">
-					</div>
-					<div class="ad-2">
-						<?php $background = of_get_option( 'ad300x250', $background_defaults ); ?>
-						<img src="<?php echo esc_url( $background['image'] );  ?>">
-					</div>
+					<?php
+			// Count how many footer sidebars are active so we can work out how many containers we need
+			$footerSidebars = 0;
+			for ( $x=1; $x<=4; $x++ ) {
+				if ( is_active_sidebar( 'sidebar-footer' . $x ) ) {
+					$footerSidebars++;
+				}
+			}
+
+			// If there's one or more one active sidebars, create a row and add them
+			if ( $footerSidebars > 0 ) { ?>
+				<?php
+				// Work out the container class name based on the number of active footer sidebars
+				//$containerClass = "grid_" . 12 / $footerSidebars . "_of_12";
+
+				// Display the active footer sidebars
+				for ( $x=1; $x<=4; $x++ ) {
+					if ( is_active_sidebar( 'sidebar-footer'. $x ) ) { ?>
+						<!--<div class="col <?php echo $containerClass?>">-->
+							<div class="widget-area" role="complementary">
+								<?php dynamic_sidebar( 'sidebar-footer'. $x ); ?>
+							</div>
+						<!--</div>--> <!-- /.col.<?php echo $containerClass?> -->
+					<?php }
+				} ?>
+
+			<?php } ?>
+
 				</div>
 			</div>
 		</div>

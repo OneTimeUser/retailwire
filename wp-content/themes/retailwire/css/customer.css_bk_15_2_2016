@@ -211,7 +211,7 @@ body #bannercontainer {
 	color: #645c47;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
     margin-right: 10px;
 }
 .banner .widget{
@@ -271,7 +271,9 @@ body #bannercontainer {
 	margin-bottom: 20px;
 	width: 25%;
 	float: right;
+
 /*	height: AUTO;*/
+
 }
 .item-braintrust span{
     background: #E8AA07;
@@ -510,7 +512,7 @@ padding-left: 30px;
 
 .item-resource h2 a{
 	text-decoration: none;
-	font-size: 18px;
+	font-size: 16px;
 	font-family: jubilat;
 	color: #000;
 	font-weight: bold;
@@ -672,6 +674,7 @@ margin-bottom: 10px;
 .img-item-res{
 	float: left;
 	position: relative;
+	max-width: 295px;
 }
 .info-resource{
     overflow: hidden;
@@ -741,14 +744,13 @@ color: #000;
 }
 .section-2{
 	text-align: center;
-	padding: 30px 0px;
+	padding: 0px;
 
 }
 .section-3,
 .section-4{
 	border-bottom: 5px solid #9E9B8C;
 	border-right: 1px solid #9E9B8C;
-	padding: 30px 0px;
     overflow: hidden;
 }
 /* Update 15-01-2016 */
@@ -839,7 +841,7 @@ color: #000;
 }	
 .sub-list-post{
 	min-height: 110px;
-	margin-top: 30px;
+	margin-top: 15px;
 }
 .sub-list-post.not-thumbnail .group-info > h3 > a{
 	height: auto;
@@ -1120,7 +1122,7 @@ width: 40%;
 	line-height: 15px;
 }
 .sub-list-press h3{
-	margin: 10px 0px 0px 0px;
+	margin: 15px 0px 0px 0px;
 	line-height: 15px;
 }
 .sub-list-press h3 a{
@@ -1262,7 +1264,6 @@ body .sec-3-m {
 }
 .list-so-user li{
 	display: inline-block;
-	float: left;
 }
 .single-user-l .list-so-user li{
 	float: none;
@@ -1296,7 +1297,7 @@ body .sec-3-m {
 	min-height: 100px;
 }
 .list-user-bottom .list-so-user{
-/*	text-align: left;*/
+	text-align: left;
 	margin-top: 10px;
 }
 .braintrust-top .s4-retail{
@@ -1420,7 +1421,7 @@ body .sec-3-m {
     margin: 0px 5px 0px 0px !important;
 }
 .sec-about-1{
-	border-bottom: 2px solid #000;
+	
 }
 .title-2{
 	font-family: Calibri;
@@ -1440,7 +1441,7 @@ body .sec-3-m {
 	max-width: inherit !important;
 }
 .box-spon{
-	width: 20%;
+	width: 19%;
     margin-right: 1% !important;
     float: left;
 }
@@ -1854,6 +1855,11 @@ body .sec-3-m {
 	.item-braintrust .desc{
 	    line-height: 20px;
 	}
+
+	.item-braintrust .desc p{
+		margin: 0;
+	}
+
 	.list-resource{
 		width: 92%;
 	}
@@ -1867,9 +1873,6 @@ body .sec-3-m {
 }
 
 @media screen and (max-width: 1024px){
-	#headerwrapper {
-     height: auto; 
-	}
 	.sec-1-l {
 	    width: auto;
     	float: none;
@@ -2037,7 +2040,7 @@ body .sec-3-m {
     margin-bottom: 20px;
 	}
 	.sub-list-post {
-    width: 60%;
+    width: 90%;
     float: none;
     min-height: inherit;
     clear: both;
@@ -2080,6 +2083,11 @@ body .sec-3-m {
     min-height: 220px;
     text-align: left;
 	}
+
+	.single-dis-l{
+		width: 70%;
+		float: left;
+	}
 	.form-login-2 {
     max-width: 80%;	
 	}
@@ -2111,8 +2119,8 @@ body .sec-3-m {
 	}
 	.single-dis-l,
 	.single-dis-r {
-    width: auto;
-    float: none;
+    width: 30%;
+    float: right;
 	}
 	.single-discussion .single-dis-l .item-discussion {
     height: auto;
@@ -2161,11 +2169,12 @@ body .sec-3-m {
 	.alm-listing li.item-resource-2 img {
     width: 220px;
 	}
-	.info-resource h2 a {
+	.info-resource h2 a, .item-dis-2 h2 a {
     font-size: 18px;
 	}
 	.list-tab-dis {
     padding: 20px 0px 0px 0px;
+    float: none;
 	}
 	.info-dis h2 {
     font-size: 2.25rem;
@@ -2178,6 +2187,16 @@ body .sec-3-m {
 	}
 	.item-braintrust .desc p{
 		margin-bottom:10px;
+	}
+
+	.single-dis-l{
+		width: 65%;
+		float: left;
+	}
+
+	.single-dis-r{
+		width: 35%;
+		float: right;
 	}
 }
 @media screen and (max-width: 600px){
@@ -2256,6 +2275,25 @@ body .sec-3-m {
     margin: 10px 3% 30px !important;
     display: inline-block;
 	}
+
+	.single-dis-l{
+		width: auto;
+		float: none;
+	}
+
+	.single-dis-l .item-discussion{
+		height: auto !important;
+	}
+
+	.single-dis-r{
+		width: auto;
+		float: none;
+	}
+
+	.single-dis-r .item-braintrust{
+		height: auto !important;
+	}
+
 	.box-spon {
     width: 48%;
     margin: 10px 1% !important;
@@ -2264,6 +2302,8 @@ body .sec-3-m {
     border-left: none;
     margin-top: 30px !important;
 	}
+
+	
 }
 @media screen and (max-width: 480px){
 	.site-title img, 

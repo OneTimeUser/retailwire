@@ -1117,7 +1117,7 @@ width: 40%;
 	display: none;
 }
 .sub-list-press{
-	line-height: 15px;
+
 }
 .sub-list-press h3{
 	margin: 10px 0px 0px 0px;
@@ -1125,8 +1125,8 @@ width: 40%;
 }
 .sub-list-press h3 a{
 	text-decoration: none;
-    font-size: 16px;
-    font-family: Jubilat;
+    font-size: 18px;
+    font-family: jubilat;
     color: #000;
     font-weight: bold;
 }
@@ -1169,14 +1169,14 @@ width: 40%;
 }
 .title-press ,
 .title-twitter{
-    font-size: 16px !important;
+    font-size: 25px !important;
 }
 .content-twitter{
 	padding: 0px 20px;
 }
 .content-twitter ul{
 	text-align: center;
-	padding: 15px 0px 0px 0px;
+	padding: 10px 0px 0px 0px;
 }
 .content-twitter ul li{
 	display: inline-block;
@@ -1867,9 +1867,6 @@ body .sec-3-m {
 }
 
 @media screen and (max-width: 1024px){
-	#headerwrapper {
-     height: auto; 
-	}
 	.sec-1-l {
 	    width: auto;
     	float: none;
