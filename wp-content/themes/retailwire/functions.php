@@ -1461,7 +1461,7 @@ function braintrust(){
 add_action( 'add_meta_boxes_comment', 'comment_add_meta_box' );
 function comment_add_meta_box()
 {
- add_meta_box( 'my-comment-title', __( 'Your field title' ), 'comment_meta_box_age1',     'comment', 'normal', 'high' );
+ add_meta_box( 'my-comment-title', __( 'Discussion Braintrust Comments Featured' ), 'comment_meta_box_age1',     'comment', 'normal', 'high' );
 }
 
 function comment_meta_box_age1( $comment )
